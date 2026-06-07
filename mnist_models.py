@@ -34,11 +34,7 @@ matplotlib.use("Agg")          # headless — no display required
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-try:
-    from tqdm import tqdm
-    HAS_TQDM = True
-except ImportError:
-    HAS_TQDM = False
+HAS_TQDM = False  # disabled for clean output on CPU
 
 # ──────────────────────────────────────────────────────────
 # Reproducibility
@@ -51,8 +47,8 @@ torch.manual_seed(SEED)
 # ──────────────────────────────────────────────────────────
 # Config
 # ──────────────────────────────────────────────────────────
-EPOCHS      = 5
-BATCH_SIZE  = 64
+EPOCHS      = 2
+BATCH_SIZE  = 128
 LR          = 1e-3
 NUM_CLIENTS = 5       # virtual federated clients for Non-IID sharding
 ALPHA       = 0.5     # Dirichlet concentration (lower → more skewed)
